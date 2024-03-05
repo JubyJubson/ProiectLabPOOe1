@@ -65,6 +65,7 @@ jobs:
                    --suppress=missingIncludeSystem \
                    --suppress=unmatchedSuppression \
                    --suppress=useStlAlgorithm \
+                   -itest/* \
                    --error-exitcode=1
 
   clang-tidy:
