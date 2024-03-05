@@ -10,8 +10,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # You aren't supposed to be using this, but convenience...
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*")
+file(GLOB_RECURSE HEADERS RELATIVE ${CMAKE_SOURCE_DIR} "include/*")
 file(GLOB_RECURSE TESTS RELATIVE ${CMAKE_SOURCE_DIR} "test/*.cpp")
 include_directories(include)
+include_directories(src)
 
 option(WARNINGS_AS_ERRORS "Treat warnings as errors" OFF)
 
@@ -147,6 +149,7 @@ enable_testing()
 
 add_executable(
         test_oop
+        ${HEADERS}
         ${TESTS}
         ${SOURCES}
 )
