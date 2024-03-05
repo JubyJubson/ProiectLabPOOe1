@@ -11,18 +11,23 @@ Nerespectarea duce la nepunctarea proiectului
 - existența a minim un punct din fiecare cerință
 - fară variabile globale
 - datele membre private
+- teste unitare pentru cerintele implementate (daca nu apar probleme cu setup-ul de teste 😅)
 
 ## Tema 1
 
 #### Cerințe
 - [ ] definirea a minim **3 clase** folosind o relație de compunere și una de agregare (5p)
-  - pentru toate clasele:
+  - pentru o clasă:
     - [ ] constructori de inițializare
+    - [ ] constructor supraîncărcat
     - [ ] constructori de copiere
     - [ ] `operator=` de copiere
     - [ ] destructor
     - [ ] `operator<<` pentru afișare (std::ostream)
     - [ ] `operator>>` pentru citire (std::istream)
+    - [ ] alt operator supraîncărcat ca funcție membră
+    - [ ] alt operator supraîncărcat ca funcție non-membră
+   - pentru celelalte clase se va definii doar ce e nevoie
 - [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe (2p)
   - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector 
 - [ ] scenariu de utilizare a claselor definite (1p):
@@ -33,12 +38,8 @@ Nerespectarea duce la nepunctarea proiectului
 ## Recomandare Tema
 
 * rezolvați tema 1 cu niște itemi generali ca să puteți extinde tema cu ușurință la următoarele teme.
-  - coș te cumpărături + produse
+  - coș de cumpărături + produse
   - sistem de validare a documentelor + documente de identitate
   - sistem de gestionare a biletelor + bilet 
 * funcționalitatea creată să folosească metode ale obiectului generic 
 * ar fi bine ca relația de agregare să fie făcută cu un obiect general în stilul celor de mai sus ^
-
-## Resurse
-
-- adăugați trimiteri către resursele externe care v-au ajutat sau pe care le-ați folosit

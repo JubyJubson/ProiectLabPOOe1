@@ -9,8 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # You aren't supposed to be using this, but convenience...
-file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*.((cpp)|h)")
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*")
 file(GLOB_RECURSE TESTS RELATIVE ${CMAKE_SOURCE_DIR} "test/*.cpp")
+include_directories(include)
 
 option(WARNINGS_AS_ERRORS "Treat warnings as errors" OFF)
 
@@ -146,8 +147,8 @@ enable_testing()
 
 add_executable(
         test_oop
-        ${SOURCES}
         ${TESTS}
+        ${SOURCES}
 )
 
 target_link_libraries(
