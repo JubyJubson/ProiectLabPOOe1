@@ -251,6 +251,10 @@ jobs:
         # Execute the build using N jobs (-jN)
         run: cmake --build "${BUILD_DIR}" --config ${BUILD_TYPE} -j6
 
+      - name: Test
+        # Run tests
+        run: cd "${BUILD_DIR}" && ctest
+
       - name: Install
         # Use CMake to "install" build artifacts (only interested in CMake registered targets) to our custom artifacts directory
         run: cmake --install "${BUILD_DIR}" --config ${BUILD_TYPE} --prefix artifacts

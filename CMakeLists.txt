@@ -8,6 +8,10 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# You aren't supposed to be using this, but convenience...
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*.((cpp)|h)")
+file(GLOB_RECURSE TESTS RELATIVE ${CMAKE_SOURCE_DIR} "test/*.cpp")
+
 option(WARNINGS_AS_ERRORS "Treat warnings as errors" OFF)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
@@ -67,19 +71,17 @@ endfunction()
 ###############################################################################
 
 # external dependencies with FetchContent
-# include(FetchContent)
+include(FetchContent)
 #
 # NOTE: Also update env vars used for caching in
 #         - .github/actions/configure-cmake/action.yml
 #         - .github/workflows/cmake.yml
-# FetchContent_Declare(
-#         SomeLib
-#         GIT_REPOSITORY https://github.com/<SomeUser>/<SomeLib>.git
-#         GIT_TAG        <some_git_hash> # <which tag/branch @ <some_date>>
-#         GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
-# )
+ FetchContent_Declare(
+         googletest
+         URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+ )
 #
-# FetchContent_MakeAvailable(SomeLib)
+FetchContent_MakeAvailable(googletest)
 
 ###############################################################################
 
@@ -90,7 +92,7 @@ endfunction()
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
 
 ###############################################################################
 
@@ -138,3 +140,20 @@ install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 if(APPLE)
     install(FILES launcher.command DESTINATION bin)
 endif()
+
+###############################################################################
+enable_testing()
+
+add_executable(
+        test_oop
+        ${SOURCES}
+        ${TESTS}
+)
+
+target_link_libraries(
+        test_oop
+        GTest::gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(test_oop)
