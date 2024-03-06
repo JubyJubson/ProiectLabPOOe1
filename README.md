@@ -11,7 +11,7 @@ Nerespectarea duce la nepunctarea proiectului
 - existența a minim un punct din fiecare cerință
 - fară variabile globale
 - datele membre private
-- fara headere specifice unui sistem de operare ("windows.h")
+- fara headere specifice unui sistem de operare (<windows.h>)
 - teste unitare pentru cerințele implementate (unde se poate, dacă nu apar probleme cu setup-ul de teste 😅)
 
 ## Tema 1
