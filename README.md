@@ -11,7 +11,8 @@ Nerespectarea duce la nepunctarea proiectului
 - existența a minim un punct din fiecare cerință
 - fară variabile globale
 - datele membre private
-- teste unitare pentru cerintele implementate (daca nu apar probleme cu setup-ul de teste 😅)
+- fara headere specifice unui sistem de operare ("windows.h")
+- teste unitare pentru cerințele implementate (unde se poate, dacă nu apar probleme cu setup-ul de teste 😅)
 
 ## Tema 1
 
@@ -28,7 +29,7 @@ Nerespectarea duce la nepunctarea proiectului
     - [ ] alt operator supraîncărcat ca funcție membră
     - [ ] alt operator supraîncărcat ca funcție non-membră
    - pentru celelalte clase se va definii doar ce e nevoie
-- [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe (2p)
+- [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese (2p)
   - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector 
 - [ ] scenariu de utilizare a claselor definite (1p):
   - crearea de obiecte și apelarea tuturor funcțiilor membru publice în main
@@ -43,3 +44,4 @@ Nerespectarea duce la nepunctarea proiectului
   - sistem de gestionare a biletelor + bilet 
 * funcționalitatea creată să folosească metode ale obiectului generic 
 * ar fi bine ca relația de agregare să fie făcută cu un obiect general în stilul celor de mai sus ^
+* branch-uri + commit-uri punctuale
