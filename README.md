@@ -17,7 +17,7 @@ Nerespectarea duce la nepunctarea proiectului
 ## Tema 1
 
 #### Cerințe
-- [ ] definirea a minim **3 clase** folosind o relație de compunere și una de agregare (5p)
+- [ ] definirea a minim **2-3 clase** care sa interactioneze in cadrul temei alese (fie prin compunere, agregare sau doar sa apeleze metodele celeilalte intr-un mod logic) (5p)
   - pentru o clasă:
     - [ ] constructori de inițializare
     - [ ] constructor supraîncărcat
@@ -28,13 +28,13 @@ Nerespectarea duce la nepunctarea proiectului
     - [ ] `operator>>` pentru citire (std::istream)
     - [ ] alt operator supraîncărcat ca funcție membră
     - [ ] alt operator supraîncărcat ca funcție non-membră
-   - pentru celelalte clase se va definii doar ce e nevoie
-- [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese (2p)
-  - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector 
+  - pentru celelalte clase se va definii doar ce e nevoie
+- [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe (3p)
+- nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector 
 - [ ] scenariu de utilizare a claselor definite (1p):
   - crearea de obiecte și apelarea tuturor funcțiilor membru publice în main
   - vor fi adăugate în fișierul `tastatura.txt` DOAR exemple de date de intrare de la tastatură (dacă există); dacă aveți nevoie de date din fișiere, creați alte fișiere separat
-- [ ] opțiune pentru citirea și afișarea a n obiecte (2p)
+- [ ] opțiune pentru citirea și afișarea a n obiecte (1p)
 
 ## Recomandare Tema
 
