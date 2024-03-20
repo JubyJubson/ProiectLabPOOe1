@@ -63,10 +63,10 @@ public:
         video.dislike_number = 0;
         cout << "Video Name: ";
         in.get();
-        getline(in, video.video_name);
+        std::getline(in, video.video_name);
         cout << endl;
         cout << "Video Description: ";
-        getline(in,video.video_description);
+        std::getline(in,video.video_description);
         cout << "Video Length(please insert a positive number): ";
         in >> video.video_length;
         cout << endl;
@@ -185,13 +185,13 @@ public:
 friend istream& operator>>(istream& in, YoutubeChannel& canal){
         cout << "Channel Name: ";
         in.get();
-        getline(in, canal.Name);
+        std::getline(in, canal.Name);
         cout << endl;
         cout << "Owner Name: ";
-        getline(in, canal.OwnerName);
+        std::getline(in, canal.OwnerName);
         cout << endl;
         cout << "Channel Description:";
-        getline(in, canal.Description);
+        std::getline(in, canal.Description);
         cout << endl;
         canal.SubscriberCount = 0;
         return in;
@@ -647,21 +647,21 @@ int main() {
                             case 2:
                                 cout << "New Name: ";
                                 cin.get();
-                                getline(cin,nume_nou);
+                                std::getline(cin,nume_nou);
                                 ListaCanale.at(3).set_Name(nume_nou);
                                 cout << "       Your channel has been modified!" << endl << endl;
                                 break;
                             case 3:
                                 cout << "New Owner Name: ";
                                 cin.get();
-                                getline(cin,owner_nou);
+                                std::getline(cin,owner_nou);
                                 ListaCanale.at(3).set_OwnerName(owner_nou);
                                 cout << "       Your channel has been modified!" << endl << endl;
                                 break;
                             case 4:
                                 cout << "New Description: ";
                                 cin.get();
-                                getline(cin,desc_nou);
+                                std::getline(cin,desc_nou);
                                 ListaCanale.at(3).set_Desc(desc_nou);
                                 cout << "       Your channel has been modified!" <<endl << endl;
                                 break;
