@@ -1,4 +1,4 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
+# Aplicatie de tip Youtube. In acesta prima etapa poti sa te uiti la canalele deja creeate din aplicatia Youtube, poti sa interactionezi cu aceestea dand like si dislike la videoclipurile acestora si sa te abonezi la ele. De asemnea poti sa iti creezi propriul tau canal de Youtube si sa postezi videoclipuri. Acesta canal o sa apara in lista de canale din aplicatia YouTube, de asemenea acesta poate fi modificat de utilizator(Nume canal, nume proprietar, descriere noua)
 
 ## Cerințe obligatorii 
 
