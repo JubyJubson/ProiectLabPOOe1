@@ -100,6 +100,7 @@ private:
     int SubscriberCount;
     int Subscribed;
     vector<Video*> PublishedVideosTitles;
+    vector<Video> DownloadedVideos;
 public:
     YoutubeChannel(){
         this -> Name = "Guest";
@@ -143,6 +144,10 @@ public:
         PublishedVideosTitles.push_back(video);
     }
 
+    void DownloadVideo(const Video& video){
+        DownloadedVideos.push_back(video);
+    }
+
     string GetName(){
         return Name;
     }
@@ -161,6 +166,9 @@ public:
 
     vector<Video*> GetPublishedVideosTitles(){
         return PublishedVideosTitles;
+    }
+    vector<Video> GetDownloadedVideos(){
+        return DownloadedVideos;
     }
 
 //    [[nodiscard]] int GetSubscribed() const{
@@ -262,15 +270,21 @@ int main() {
 
     Video v1_nou, v2_nou, v3_nou;
     Video* ptr1_nou, *ptr2_nou, *ptr3_nou;
+    YoutubeChannel canal_download;
+    string download_name, download_description;
+    int download_length;
     cout << "                          WELCOME TO YOUTUBE                                    " << endl;
     cout << "To view all YouTube Channels - Press 1" << endl;
     cout << "To view you Channel - Press 2" << endl;
     cout << "To make a new Channel - Press 3" << endl;
+    cout << "To download videos - Press 4" << endl;
     cout << endl << "EXIT - Press 0" << endl;
+    int download;
     int x;
     int z;
     int y;
     int b;
+    int n;
     int nou = 0;
     int nr_video = 1;
     cin >> x;
@@ -684,7 +698,37 @@ int main() {
                     else
                         cout <<"You already have a channel - Press 2 to modify it!" << endl;
                 break;
-                default:;
+                case 4:
+                    cout<<"Press 1 to download videos or press 2 to view your downloaded videos: ";
+                    cin >> download;
+                    cout << endl;
+                    if (download == 1) {
+                        cout << "Please insert the number of videos you want to download:  " << endl;
+                        cin >> n;
+                        for (int i = 1; i <= n; i++) {
+                            cout << "Video number " << i << " will be: " << endl;
+                            cout << "Name:";
+                            cin.get();
+                            getline(cin, download_name);
+                            cout << endl;
+                            cout << "Description:";
+                            getline(cin, download_description);
+                            cout << "Length:";
+                            cin >> download_length;
+                            canal_download.DownloadVideo(
+                                    Video(download_name, 0, 0, download_length, download_description));
+                        }
+                    }
+                    else{
+                        for (unsigned long long i = 0; i < canal_download.GetDownloadedVideos().size(); i++) {
+                            cout << "Video number " << i + 1 << " is: " << endl;
+                            cout << canal_download.GetDownloadedVideos().at(i);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+
             }
 
         }
@@ -692,6 +736,7 @@ int main() {
         cout << "To view all YouTube Channels - Press 1" << endl;
         cout << "To view you Channel - Press 2" << endl;
         cout << "To make a new Channel - Press 3" << endl;
+        cout << "To download videos - Press 4" << endl;
         cout << endl << "EXIT - Press 0" << endl;
         cin >> x;
     }
