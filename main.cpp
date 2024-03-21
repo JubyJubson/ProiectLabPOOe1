@@ -720,6 +720,10 @@ int main() {
                         }
                     }
                     else{
+                        if (canal_download.GetDownloadedVideos().empty()) {
+                            cout << "You don't have any downloaded videos, download some by pressing 4 to see them here!" << endl;
+                            break;
+                        }
                         for (unsigned long long i = 0; i < canal_download.GetDownloadedVideos().size(); i++) {
                             cout << "Video number " << i + 1 << " is: " << endl;
                             cout << canal_download.GetDownloadedVideos().at(i);
