@@ -39,8 +39,8 @@ Nerespectarea duce la nepunctarea proiectului
 ### Tema 2
 
 #### Cerințe
-- [ ] separarea codului din clase în `.h` (sau `.hpp`) și `.cpp` [(0.25p)](https://github.com/Ionnier/poo/tree/main/proiect/P01#separarea-implement%C4%83rii-metodelor-din-clase)
-- [ ] cât mai multe `const` [(0.25p)](https://github.com/Ionnier/poo/tree/main/labs/L04#reminder-const-everywhere)
+- [ ] separarea codului din clase în `.h` (sau `.hpp`) și `.cpp` [(0.5p)](https://github.com/Ionnier/poo/tree/main/proiect/P01#separarea-implement%C4%83rii-metodelor-din-clase)
+- [ ] cât mai multe `const` [(0.5p)](https://github.com/Ionnier/poo/tree/main/labs/L04#reminder-const-everywhere)
 - [ ] moșteniri [(5p)](https://github.com/Ionnier/poo/tree/main/labs/L04#exemplu):
   - [ ] minim o clasă de bază și **2 clase derivate**
   - [ ] încercați să derivați o clasă creată anterior
