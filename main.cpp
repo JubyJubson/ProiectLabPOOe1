@@ -1,233 +1,235 @@
 #include <iostream>
-#include <utility>
 #include <vector>
 #include <string>
+#include "Video.h"
+#include "YoutubeChannel.h"
+
 using namespace std;
-class Video{
-private:
-    string video_name;
-    int like_number;
-    int dislike_number;
-    int video_length;
-    string video_description;
-public:
-    Video(string video_name, int like_number, int dislike_number, int video_length, string video_description){
-        this -> video_name = std::move(video_name);
-        this -> like_number = like_number;
-        this -> dislike_number = dislike_number;
-        this -> video_length = video_length;
-        this -> video_description = std::move(video_description);
-    }
-
-    Video(const Video& video){
-        this -> video_name = video.video_name;
-        this -> like_number = video.like_number;
-        this -> dislike_number = video.dislike_number;
-        this -> video_length = video.video_length;
-        this -> video_description = video.video_description;
-    }
-    string GetVideoName(){
-        return video_name;
-    }
-    [[nodiscard]] int GetLikeNumber() const{
-        return like_number;
-    }
-    [[nodiscard]] int GetDislikeNumber() const{
-        return dislike_number;
-    }
-    [[nodiscard]] int GetVideoLenght() const{
-        return video_length;
-    }
-    string GetVideoDesc(){
-        return video_description;
-    }
-
-    void Like_video(){
-        this -> like_number ++;
-    }
-
-    void Dislike_video(){
-        this -> dislike_number ++;
-    }
-    Video(){
-        this -> video_name = "NO NAME";
-        this -> like_number = 0;
-        this -> dislike_number = 0;
-        this -> video_length = 0;
-        this -> video_description = "This video doesn't have a description";
-    }
-
-    Video& operator=(const Video& video)= default;
-
-    friend istream& operator>>(istream& in, Video& video){
-        video.like_number = 0;
-        video.dislike_number = 0;
-        cout << "Video Name: ";
-        in.get();
-        std::getline(in, video.video_name);
-        cout << endl;
-        cout << "Video Description: ";
-        std::getline(in,video.video_description);
-        cout << "Video Length(please insert a positive number): ";
-        in >> video.video_length;
-        cout << endl;
-        return in;
-    }
-
-    ~Video(){
-        video_description = "There is no description";
-        video_name = "There is no name";
-        video_length = 0;
-        like_number = 0;
-        dislike_number = 0;
-    }
-
-    int operator+(const Video& video) const{
-        return  this->like_number + video.like_number;
-    }
-
-    friend Video operator++ (Video& video){
-        video.like_number ++;
-        return video;
-    }
-
-};
-class YoutubeChannel{
-private:
-    string Name;
-    string OwnerName;
-    string Description;
-    int SubscriberCount;
-    int Subscribed;
-    vector<Video*> PublishedVideosTitles;
-    vector<Video> DownloadedVideos;
-public:
-    YoutubeChannel(){
-        this -> Name = "Guest";
-        this -> OwnerName = "Nu a fost precizat";
-        this -> Description ="Nu a fost precizat";
-        this -> SubscriberCount = 0;
-        this -> Subscribed = 0;
-    }
-
-    YoutubeChannel(string Name, string Ownername, string Description){
-        this -> Name = std::move(Name);
-        this -> OwnerName = std::move(Ownername);
-        this -> Description = std::move(Description);
-        this -> SubscriberCount = 0;
-        this -> Subscribed = 0;
-    }
-
-    void Subscribe(){
-        if (Subscribed == 0) {
-            SubscriberCount++;
-            Subscribed = 1;
-            cout << "You have subscribed to this Channel";
-        }
-        else
-            cout << "You are already subscribed to this Channel!";
-    }
-
-
-    void UnSubscribe() {
-        if (Subscribed == 1) {
-            SubscriberCount--;
-            Subscribed = 0;
-            cout << "You have unsubscribed from this Channel!";
-        }
-        else
-            cout << "You can't unsubscribe from a channel you aren't subscribed to!";
-    }
-
-
-    void PublishVideo(Video* video){
-        PublishedVideosTitles.push_back(video);
-    }
-
-    void DownloadVideo(const Video& video){
-        DownloadedVideos.push_back(video);
-    }
-
-    string GetName(){
-        return Name;
-    }
-
-    string GetOwnerName(){
-        return OwnerName;
-    }
-
-    string GetDescription(){
-        return Description;
-    }
-
-    [[nodiscard]] int GetSubscribers() const{
-        return SubscriberCount;
-    }
-
-    vector<Video*> GetPublishedVideosTitles(){
-        return PublishedVideosTitles;
-    }
-    vector<Video> GetDownloadedVideos(){
-        return DownloadedVideos;
-    }
-
-//    [[nodiscard]] int GetSubscribed() const{
-//        return Subscribed;
+//class Video::Video{
+//private:
+//    string video_name;
+//    int like_number;
+//    int dislike_number;
+//    int video_length;
+//    string video_description;
+//public:
+//    Video(string video_name, int like_number, int dislike_number, int video_length, string video_description){
+//        this -> video_name = std::move(video_name);
+//        this -> like_number = like_number;
+//        this -> dislike_number = dislike_number;
+//        this -> video_length = video_length;
+//        this -> video_description = std::move(video_description);
+//    }
+//
+//    Video(const Video& video){
+//        this -> video_name = video.video_name;
+//        this -> like_number = video.like_number;
+//        this -> dislike_number = video.dislike_number;
+//        this -> video_length = video.video_length;
+//        this -> video_description = video.video_description;
+//    }
+//    string GetVideoName(){
+//        return video_name;
+//    }
+//    [[nodiscard]] int GetLikeNumber() const{
+//        return like_number;
+//    }
+//    [[nodiscard]] int GetDislikeNumber() const{
+//        return dislike_number;
+//    }
+//    [[nodiscard]] int GetVideoLenght() const{
+//        return video_length;
+//    }
+//    string GetVideoDesc(){
+//        return video_description;
+//    }
+//
+//    void Like_video(){
+//        this -> like_number ++;
+//    }
+//
+//    void Dislike_video(){
+//        this -> dislike_number ++;
+//    }
+//    Video(){
+//        this -> video_name = "NO NAME";
+//        this -> like_number = 0;
+//        this -> dislike_number = 0;
+//        this -> video_length = 0;
+//        this -> video_description = "This video doesn't have a description";
+//    }
+//
+//    Video& operator=(const Video& video)= default;
+//
+//    friend istream& operator>>(istream& in, Video& video){
+//        video.like_number = 0;
+//        video.dislike_number = 0;
+//        cout << "Video Name: ";
+//        in.get();
+//        std::getline(in, video.video_name);
+//        cout << endl;
+//        cout << "Video Description: ";
+//        std::getline(in,video.video_description);
+//        cout << "Video Length(please insert a positive number): ";
+//        in >> video.video_length;
+//        cout << endl;
+//        return in;
+//    }
+//
+//    ~Video(){
+//        video_description = "There is no description";
+//        video_name = "There is no name";
+//        video_length = 0;
+//        like_number = 0;
+//        dislike_number = 0;
+//    }
+//
+//    int operator+(const Video& video) const{
+//        return  this->like_number + video.like_number;
+//    }
+//
+//    friend Video operator++ (Video& video){
+//        video.like_number ++;
+//        return video;
 //    }
 
-    void set_SubscriberCount(int x){
-        this ->SubscriberCount = x;
-    }
+//};
+//class YoutubeChannel::YoutubeChannel{
+//private:
+//    string Name;
+//    string OwnerName;
+//    string Description;
+//    int SubscriberCount;
+//    int Subscribed;
+//    vector<Video*> PublishedVideosTitles;
+//    vector<Video> DownloadedVideos;
+//public:
+//    YoutubeChannel(){
+//        this -> Name = "Guest";
+//        this -> OwnerName = "Nu a fost precizat";
+//        this -> Description ="Nu a fost precizat";
+//        this -> SubscriberCount = 0;
+//        this -> Subscribed = 0;
+//    }
+//
+//    YoutubeChannel(string Name, string Ownername, string Description){
+//        this -> Name = std::move(Name);
+//        this -> OwnerName = std::move(Ownername);
+//        this -> Description = std::move(Description);
+//        this -> SubscriberCount = 0;
+//        this -> Subscribed = 0;
+//    }
+//
+//    void Subscribe(){
+//        if (Subscribed == 0) {
+//            SubscriberCount++;
+//            Subscribed = 1;
+//            cout << "You have subscribed to this Channel";
+//        }
+//        else
+//            cout << "You are already subscribed to this Channel!";
+//    }
+//
+//
+//    void UnSubscribe() {
+//        if (Subscribed == 1) {
+//            SubscriberCount--;
+//            Subscribed = 0;
+//            cout << "You have unsubscribed from this Channel!";
+//        }
+//        else
+//            cout << "You can't unsubscribe from a channel you aren't subscribed to!";
+//    }
+//
+//
+//    void PublishVideo(Video* video){
+//        PublishedVideosTitles.push_back(video);
+//    }
+//
+//    void DownloadVideo(const Video& video){
+//        DownloadedVideos.push_back(video);
+//    }
+//
+//    string GetName(){
+//        return Name;
+//    }
+//
+//    string GetOwnerName(){
+//        return OwnerName;
+//    }
+//
+//    string GetDescription(){
+//        return Description;
+//    }
+//
+//    [[nodiscard]] int GetSubscribers() const{
+//        return SubscriberCount;
+//    }
+//
+//    vector<Video*> GetPublishedVideosTitles(){
+//        return PublishedVideosTitles;
+//    }
+//    vector<Video> GetDownloadedVideos(){
+//        return DownloadedVideos;
+//    }
+//
+////    [[nodiscard]] int GetSubscribed() const{
+////        return Subscribed;
+////    }
+//
+//    void set_SubscriberCount(int x){
+//        this ->SubscriberCount = x;
+//    }
+//
+//    void set_Name(string nume){
+//        this -> Name = std::move(nume);
+//    }
+//
+//    void set_OwnerName(string owner){
+//        this -> OwnerName = std::move(owner);
+//    }
+//
+//    void set_Desc(string desc){
+//        this -> Description = std::move(desc);
+//    }
+//
+//friend istream& operator>>(istream& in, YoutubeChannel& canal){
+//        cout << "Channel Name: ";
+//        in.get();
+//        std::getline(in, canal.Name);
+//        cout << endl;
+//        cout << "Owner Name: ";
+//        std::getline(in, canal.OwnerName);
+//        cout << endl;
+//        cout << "Channel Description:";
+//        std::getline(in, canal.Description);
+//        cout << endl;
+//        canal.SubscriberCount = 0;
+//        return in;
+//    }
 
-    void set_Name(string nume){
-        this -> Name = std::move(nume);
-    }
-
-    void set_OwnerName(string owner){
-        this -> OwnerName = std::move(owner);
-    }
-
-    void set_Desc(string desc){
-        this -> Description = std::move(desc);
-    }
-
-friend istream& operator>>(istream& in, YoutubeChannel& canal){
-        cout << "Channel Name: ";
-        in.get();
-        std::getline(in, canal.Name);
-        cout << endl;
-        cout << "Owner Name: ";
-        std::getline(in, canal.OwnerName);
-        cout << endl;
-        cout << "Channel Description:";
-        std::getline(in, canal.Description);
-        cout << endl;
-        canal.SubscriberCount = 0;
-        return in;
-    }
-
-};
-const ostream& operator<<(ostream& out, Video* video){
-    out << "Video Name: " << (*video).GetVideoName() << "    Video length: "<< (*video).GetVideoLenght()<< " minutes    Likes: "<<  (*video).GetLikeNumber() << "    Dislikes: "<< (*video).GetDislikeNumber() << endl;
-    out << "Video Description: " << (*video).GetVideoDesc() << endl << endl;
-    return out;
-}
-
-const ostream& operator<<(ostream& out, Video video){
-    out << "Video Name: " << video.GetVideoName() << "    Video length: "<< video.GetVideoLenght()<< " minutes    Likes: "<<  video.GetLikeNumber() << "    Dislikes: "<< video.GetDislikeNumber() << endl;
-    out << "Video Description: " << video.GetVideoDesc() << endl << endl;
-    return out;
-}
-
-ostream& operator<< (ostream& out, YoutubeChannel canal){
-    out << "------------------------------Channel Name: " << canal.GetName() <<"--------------------------------------" << endl;
-    out << "Owner name: " << canal.GetOwnerName() <<  "    Channel description: "<< canal.GetDescription()<< endl;
-    out << "Subscriber count: " << canal.GetSubscribers();
-//    out << "Posted Videos:" << endl;
-//    for (Video* video : canal.GetPublishedVideosTitles())
-//        out << "- " <<  video ;
-    return out;
-}
+//};
+//const ostream& operator<<(ostream& out, Video* video){
+//    out << "Video Name: " << (*video).GetVideoName() << "    Video length: "<< (*video).GetVideoLenght()<< " minutes    Likes: "<<  (*video).GetLikeNumber() << "    Dislikes: "<< (*video).GetDislikeNumber() << endl;
+//    out << "Video Description: " << (*video).GetVideoDesc() << endl << endl;
+//    return out;
+//}
+//
+//const ostream& operator<<(ostream& out, Video video){
+//    out << "Video Name: " << video.GetVideoName() << "    Video length: "<< video.GetVideoLenght()<< " minutes    Likes: "<<  video.GetLikeNumber() << "    Dislikes: "<< video.GetDislikeNumber() << endl;
+//    out << "Video Description: " << video.GetVideoDesc() << endl << endl;
+//    return out;
+//}
+//
+//ostream& operator<< (ostream& out, YoutubeChannel canal){
+//    out << "------------------------------Channel Name: " << canal.GetName() <<"--------------------------------------" << endl;
+//    out << "Owner name: " << canal.GetOwnerName() <<  "    Channel description: "<< canal.GetDescription()<< endl;
+//    out << "Subscriber count: " << canal.GetSubscribers();
+////    out << "Posted Videos:" << endl;
+////    for (Video* video : canal.GetPublishedVideosTitles())
+////        out << "- " <<  video ;
+//    return out;
+//}
 
 
 int main() {
@@ -340,7 +342,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 4:
-                                    canal1.GetPublishedVideosTitles().at(0)->Dislike_video();
+                                    canal1.GetPublishedVideosTitles().at(0)->DislikeVideo();
                                     cout << canal1.GetPublishedVideosTitles().at(0);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -350,7 +352,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 6:
-                                    canal1.GetPublishedVideosTitles().at(1)->Dislike_video();
+                                    canal1.GetPublishedVideosTitles().at(1)->DislikeVideo();
                                     cout << canal1.GetPublishedVideosTitles().at(1);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -360,7 +362,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 8:
-                                    canal1.GetPublishedVideosTitles().at(2)->Dislike_video();
+                                    canal1.GetPublishedVideosTitles().at(2)->DislikeVideo();
                                     cout << canal1.GetPublishedVideosTitles().at(2);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -414,7 +416,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 4:
-                                    canal2.GetPublishedVideosTitles().at(0)->Dislike_video();
+                                    canal2.GetPublishedVideosTitles().at(0)->DislikeVideo();
                                     cout << canal2.GetPublishedVideosTitles().at(0);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -424,7 +426,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 6:
-                                    canal2.GetPublishedVideosTitles().at(1)->Dislike_video();
+                                    canal2.GetPublishedVideosTitles().at(1)->DislikeVideo();
                                     cout << canal2.GetPublishedVideosTitles().at(1);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -434,7 +436,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 8:
-                                    canal2.GetPublishedVideosTitles().at(2)->Dislike_video();
+                                    canal2.GetPublishedVideosTitles().at(2)->DislikeVideo();
                                     cout << canal2.GetPublishedVideosTitles().at(2);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -489,7 +491,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 4:
-                                    canal3.GetPublishedVideosTitles().at(0)->Dislike_video();
+                                    canal3.GetPublishedVideosTitles().at(0)->DislikeVideo();
                                     cout << canal3.GetPublishedVideosTitles().at(0);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -499,7 +501,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 6:
-                                    canal3.GetPublishedVideosTitles().at(1)->Dislike_video();
+                                    canal3.GetPublishedVideosTitles().at(1)->DislikeVideo();
                                     cout << canal3.GetPublishedVideosTitles().at(1);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -509,7 +511,7 @@ int main() {
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 8:
-                                    canal3.GetPublishedVideosTitles().at(2)->Dislike_video();
+                                    canal3.GetPublishedVideosTitles().at(2)->DislikeVideo();
                                     cout << canal3.GetPublishedVideosTitles().at(2);
                                     cout << "You have disliked this video!" << endl;
                                     break;
@@ -559,32 +561,32 @@ int main() {
                                     cout << endl << endl;
                                     break;
                                 case 3:
-                                    ListaCanale.at(3).GetPublishedVideosTitles().at(0)->Like_video();
+                                    ListaCanale.at(3).GetPublishedVideosTitles().at(0)->LikeVideo();
                                     cout <<  ListaCanale.at(3).GetPublishedVideosTitles().at(0);
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 4:
-                                    ListaCanale.at(3).GetPublishedVideosTitles().at(0)->Dislike_video();
+                                    ListaCanale.at(3).GetPublishedVideosTitles().at(0)->DislikeVideo();
                                     cout <<  ListaCanale.at(3).GetPublishedVideosTitles().at(0);
                                     cout << "You have disliked this video!" << endl;
                                     break;
                                 case 5:
-                                    ListaCanale.at(3).GetPublishedVideosTitles().at(1)->Like_video();
+                                    ListaCanale.at(3).GetPublishedVideosTitles().at(1)->LikeVideo();
                                     cout <<  ListaCanale.at(3).GetPublishedVideosTitles().at(1);
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 6:
-                                    ListaCanale.at(3).GetPublishedVideosTitles().at(1)->Dislike_video();
+                                    ListaCanale.at(3).GetPublishedVideosTitles().at(1)->DislikeVideo();
                                     cout <<  ListaCanale.at(3).GetPublishedVideosTitles().at(1);
                                     cout << "You have disliked this video!" << endl;
                                     break;
                                 case 7:
-                                    ListaCanale.at(3).GetPublishedVideosTitles().at(2)->Like_video();
+                                    ListaCanale.at(3).GetPublishedVideosTitles().at(2)->LikeVideo();
                                     cout <<  ListaCanale.at(3).GetPublishedVideosTitles().at(2);
                                     cout << "You have liked this video!" << endl;
                                     break;
                                 case 8:
-                                    ListaCanale.at(3).GetPublishedVideosTitles().at(2)->Dislike_video();
+                                    ListaCanale.at(3).GetPublishedVideosTitles().at(2)->DislikeVideo();
                                     cout <<  ListaCanale.at(3).GetPublishedVideosTitles().at(2);
                                     cout << "You have disliked this video!" << endl;
                                     break;
