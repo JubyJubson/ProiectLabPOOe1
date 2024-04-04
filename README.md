@@ -13,6 +13,10 @@ Nerespectarea duce la nepunctarea proiectului
 - datele membre private
 - fara headere specifice unui sistem de operare (<windows.h>)
 - teste unitare pentru cerințele implementate (unde se poate, dacă nu apar probleme cu setup-ul de teste 😅)
+- folosirea a funcționalităților limbajului fără sens
+- folosirea a funcționlităților limbajului cu scopul de a încălca "legal" o altă regulă
+    - folosirea excesivă a claselor friend
+    - folosirea excesviă a elementelor statice  
 
 ## Tema 1
 
