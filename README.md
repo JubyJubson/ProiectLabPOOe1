@@ -73,6 +73,24 @@ Nerespectarea duce la nepunctarea proiectului
   - derivata nu poate fi una ștearsă și rescrisă
   - derivata va avea date membre noi + o modificare de comportament pe una dintre funcțiile virtuale
 
+### Tema 3
+
+#### Cerințe
+ - Clase template (3p)
+   - [ ] crearea unei ierarhii de clase template cu minim 2 clase
+   - [ ] ilustrarea RTTI pe clase template
+   - [ ] instanțieri cu logică a claselor create
+ - STL (2p)
+   - [ ] utilizarea a două structuri (containere) din (fără <vector>)
+   - [ ] utilizarea a unui algoritm cu funcție lambda (de exemplu, sort, transform)
+ - Design Patterns (2p)
+   - [ ] utilizarea a două șabloane de proiectare
+ - Prezentare (3p)
+   - [ ] răspunsuri la întrebări din cod / generale C++
+   - [ ] explicarea a unei alte structuri sau a altui algoritm neutilizat (STL)
+   - [ ] explicarea a altor două șabloane de proiectare
+
+
 ## Recomandare Tema
 
 * rezolvați tema 1 cu niște itemi generali ca să puteți extinde tema cu ușurință la următoarele teme.
