@@ -24,6 +24,7 @@ SponsoredLivestream& SponsoredLivestream :: operator=(const SponsoredLivestream&
     SponsoredVideo ::operator=(aux);
     Livestream ::operator=(aux);
     this -> DiscountCode = aux.DiscountCode;
+    return *this;
 }
 
 void SponsoredLivestream::citire(std::istream & in) {
