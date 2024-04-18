@@ -98,7 +98,7 @@ FetchContent_MakeAvailable(googletest)
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${PROJECT_NAME} main.cpp ${SOURCES}
+add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES}
         src/Video.cpp
         include/Video.h
         include/YoutubeChannel.h

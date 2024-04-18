@@ -1,5 +1,5 @@
 #include "Video.h"
-//#include "InvalidVideoLengthException.h"
+#include "InvalidVideoLengthException.h"
 using namespace std;
 Video::Video(string video_name, int like_number, int dislike_number, int video_length, string video_description) {
     this->video_name = std::move(video_name);
@@ -85,17 +85,16 @@ void Video::citire(std::istream &in) {
     cout << "Video Description: ";
     getline(in, video_description);
     cout << "Video Length (please insert a positive number): ";
-    in >> video_length;
-//    try {
-//        in >> video_length;
-//        if (video_length < 0) {
-//            throw InvalidVideoLengthException();
-//        }
-//    }
-//    catch (const std::exception& e) {
-//        cerr << "Exception caught: " << e.what() << endl;
-//        cerr << "Video length: "; in >> video_length;
-//    }
+    try {
+        in >> video_length;
+        if (video_length < 0) {
+            throw InvalidVideoLengthException();
+        }
+    }
+    catch (const std::exception& e) {
+        cerr << "Exception caught: " << e.what() << endl;
+        cerr << "Video length: "; in >> video_length;
+    }
     cout << endl;
     totalVideos ++;
 }
