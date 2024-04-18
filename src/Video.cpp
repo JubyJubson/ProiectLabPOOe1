@@ -91,7 +91,7 @@ void Video::citire(std::istream &in) {
             throw InvalidVideoLengthException();
         }
     }
-    catch (const InvalidVideoLengthException& e) {
+    catch (const InvalidVideoLengthException&) {
         cerr << "Exception caught: " << InvalidVideoLengthException::something() << endl;
         cerr << "Video length: "; in >> video_length;
     }
