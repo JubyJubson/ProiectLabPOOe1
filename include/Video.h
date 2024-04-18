@@ -3,11 +3,13 @@
 
 #include <string>
 #include <iostream>
+#include "Content.h"
 
 using namespace std;
 
-class Video {
-private:
+class Video : virtual public Content{
+protected:
+    static int totalVideos;
     string video_name;
     int like_number;
     int dislike_number;
@@ -20,17 +22,24 @@ public:
     Video();
     string GetVideoName();
     [[nodiscard]] int GetLikeNumber() const;
-    [[nodiscard]] int GetDislikeNumber() const;
-    [[nodiscard]] int GetVideoLength() const;
-    string GetVideoDesc();
-    void LikeVideo();
+    [[maybe_unused]] [[nodiscard]] int GetDislikeNumber() const;
+
+    [[maybe_unused]] [[maybe_unused]] [[nodiscard]] int GetVideoLength() const;
+    [[maybe_unused]] string GetVideoDesc();
+    [[maybe_unused]] void LikeVideo();
     void DislikeVideo();
     Video& operator=(const Video& video);
     friend istream& operator>>(istream& in, Video& video);
-    ~Video();
+    ~Video() override;
     int operator+(const Video& video) const;
     friend Video operator++(Video& video);
+    void show(ostream& out) const override;
+    virtual void citire(istream& in);
+    friend ostream& operator<<(ostream&, const Video&);
+    friend ostream& operator<<(ostream&, Video*);
+    static int getTotalVideos();
+    static void setTotalVideos(int aux);
+
 };
-const ostream& operator<<(ostream& out, Video* video);
-const ostream& operator<<(ostream& out, Video video);
+
 #endif // VIDEO_H

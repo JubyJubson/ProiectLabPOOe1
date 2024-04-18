@@ -99,10 +99,23 @@ FetchContent_MakeAvailable(googletest)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES}
-        Video.cpp
-        Video.h
-        YoutubeChannel.h
-        YoutubeChannel.cpp)
+        src/Video.cpp
+        include/Video.h
+        include/YoutubeChannel.h
+        src/YoutubeChannel.cpp
+        src/SponsoredVideo.cpp
+        include/SponsoredVideo.h
+        src/Livestream.cpp
+        include/Livestream.h
+        src/SponsoredLivestream.cpp
+        include/SponsoredLivestream.h
+        src/Content.cpp
+        include/Content.h
+        src/InvalidSponsorNameException.cpp
+        include/InvalidSponsorNameException.h
+        src/InvalidVideoLengthException.cpp
+        include/InvalidVideoLengthException.h
+)
 
 ###############################################################################
 

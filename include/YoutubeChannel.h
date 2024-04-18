@@ -5,11 +5,13 @@
 #include <string>
 #include <vector>
 #include "Video.h"
+#include "SponsoredVideo.h"
+#include "SponsoredLivestream.h"
 
 using namespace std;
 
 class YoutubeChannel {
-private:
+protected:
     string Name;
     string OwnerName;
     string Description;
@@ -17,6 +19,7 @@ private:
     int Subscribed;
     vector<Video*> PublishedVideosTitles;
     vector<Video> DownloadedVideos;
+
 
 public:
     YoutubeChannel();
