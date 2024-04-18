@@ -1,5 +1,5 @@
 #include "Video.h"
-#include "InvalidVideoLengthException.h"
+#include "../InvalidVideoLengthException.h"
 using namespace std;
 Video::Video(string video_name, int like_number, int dislike_number, int video_length, string video_description) {
     this->video_name = std::move(video_name);
@@ -63,6 +63,9 @@ void Video :: show(ostream& out) const{
     out << "            Content Name: " << video_name << endl << endl;
     out << "    Content Length:"<<video_length  << "    Likes: "<<  like_number << "    Dislikes: "<< dislike_number <<endl << endl;
     out << "Content Description: " << video_description << endl << endl;
+    if (video_length < 0) {
+        throw InvalidVideoLengthException();
+    }
 }
 
 ostream& operator<<(ostream& out, Video* video){

@@ -122,8 +122,8 @@ add_executable(${PROJECT_NAME} main.cpp ${SOURCES}
         Content.h
         YoutubeChannel.cpp
         YoutubeChannel.h
-        Video.cpp
-        Video.h
+        src/Video.cpp
+        include/Video.h
         SponsoredVideo.cpp
         SponsoredVideo.h
         Livestream.cpp
@@ -133,7 +133,8 @@ add_executable(${PROJECT_NAME} main.cpp ${SOURCES}
         InvaliSponsorNameException.cpp
         InvaliSponsorNameException.h
         InvalidVideoLengthException.cpp
-        InvalidVideoLengthException.h)
+        InvalidVideoLengthException.h
+)
 
 ###############################################################################
 
