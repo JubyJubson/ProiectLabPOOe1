@@ -1,5 +1,5 @@
 #include "Video.h"
-#include "InvalidVideoLengthException.h"
+//#include "InvalidVideoLengthException.h"
 using namespace std;
 Video::Video(string video_name, int like_number, int dislike_number, int video_length, string video_description) {
     this->video_name = std::move(video_name);
@@ -33,22 +33,6 @@ std::string Video::GetVideoName() {
 
 int Video::GetLikeNumber() const {
     return like_number;
-}
-
-[[maybe_unused]] int Video::GetDislikeNumber() const {
-    return dislike_number;
-}
-
-[[maybe_unused]] int Video::GetVideoLength() const {
-    return video_length;
-}
-
-[[maybe_unused]] string Video::GetVideoDesc() {
-    return video_description;
-}
-
-[[maybe_unused]] void Video::LikeVideo() {
-    this -> like_number++;
 }
 
 void Video::DislikeVideo() {
@@ -101,16 +85,17 @@ void Video::citire(std::istream &in) {
     cout << "Video Description: ";
     getline(in, video_description);
     cout << "Video Length (please insert a positive number): ";
-    try {
-        in >> video_length;
-        if (video_length < 0) {
-            throw InvalidVideoLengthException();
-        }
-    }
-    catch (const std::exception& e) {
-        cerr << "Exception caught: " << e.what() << endl;
-        cerr << "Video length: "; in >> video_length;
-    }
+    in >> video_length;
+//    try {
+//        in >> video_length;
+//        if (video_length < 0) {
+//            throw InvalidVideoLengthException();
+//        }
+//    }
+//    catch (const std::exception& e) {
+//        cerr << "Exception caught: " << e.what() << endl;
+//        cerr << "Video length: "; in >> video_length;
+//    }
     cout << endl;
     totalVideos ++;
 }

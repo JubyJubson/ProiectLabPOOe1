@@ -22,11 +22,6 @@ public:
     Video();
     string GetVideoName();
     [[nodiscard]] int GetLikeNumber() const;
-    [[maybe_unused]] [[nodiscard]] int GetDislikeNumber() const;
-
-    [[maybe_unused]] [[maybe_unused]] [[nodiscard]] int GetVideoLength() const;
-    [[maybe_unused]] string GetVideoDesc();
-    [[maybe_unused]] void LikeVideo();
     void DislikeVideo();
     Video& operator=(const Video& video);
     friend istream& operator>>(istream& in, Video& video);

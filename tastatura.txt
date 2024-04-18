@@ -24,14 +24,12 @@ Acest test a fost trecut cu succes
 2
 Livestream
 test 1
--1
 1
 2
 1
 3
 SponsoredVideo
 test 2
--2
 2
 
 KFC
@@ -40,7 +38,6 @@ KFC
 4
 Sponsored Livestream
 test 3
--5
 5
 
 Victor
