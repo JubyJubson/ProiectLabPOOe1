@@ -10,7 +10,7 @@ protected:
     int watchers;
 public:
     Livestream();
-    Livestream([[maybe_unused]] string, int, int, int, [[maybe_unused]] string, int);
+    Livestream([[maybe_unused]] const string&, int, int, int, [[maybe_unused]] const string&, int);
     ~Livestream() override;
     [[maybe_unused]] [[nodiscard]] int GetWatchers() const{
         return this -> watchers;

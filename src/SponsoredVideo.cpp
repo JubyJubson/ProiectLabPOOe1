@@ -1,10 +1,8 @@
 #include "SponsoredVideo.h"
 
-#include <utility>
 SponsoredVideo ::SponsoredVideo():Video(), sponsor_name("Unknown"){}
-SponsoredVideo ::SponsoredVideo([[maybe_unused]] string video_name, int like_number, int dislike_number, int video_length,
-                                [[maybe_unused]] string video_description, const string& sponsor_name):Video(std::move(video_name),
-                                like_number, dislike_number, video_length, std::move(video_description)){
+SponsoredVideo ::SponsoredVideo(const string& video_name, int like_number, int dislike_number, int video_length, const string& video_description, const string& sponsor_name):Video(video_name,
+                                like_number, dislike_number, video_length, video_description){
     try {
         if (sponsor_name.empty()){
             throw InvalidSponsorNameException();

@@ -10,7 +10,7 @@ class SponsoredLivestream : public SponsoredVideo, public Livestream{
     string DiscountCode;
 public:
     SponsoredLivestream();
-    SponsoredLivestream([[maybe_unused]] string, int, int, int, [[maybe_unused]] string, [[maybe_unused]] const string&, int, string );
+    SponsoredLivestream([[maybe_unused]] const string&, int, int, int, [[maybe_unused]] const string&, [[maybe_unused]] const string&, int, const string& );
     ~SponsoredLivestream() override;
     [[maybe_unused]] string GetDiscountCode(){
         return this->DiscountCode;

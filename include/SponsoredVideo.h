@@ -11,7 +11,7 @@ protected:
     string sponsor_name;
 public:
     SponsoredVideo();
-    SponsoredVideo(string, int, int, int , string, const string&);
+    SponsoredVideo(const string&, int, int, int , const string&, const string&);
     ~SponsoredVideo() override;
     [[maybe_unused]] string GetSponsorName(){
         return this -> sponsor_name;

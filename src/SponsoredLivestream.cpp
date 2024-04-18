@@ -2,15 +2,13 @@
 #include "Video.h"
 #include "Livestream.h"
 
-#include <utility>
 SponsoredLivestream ::SponsoredLivestream():SponsoredVideo(),Livestream(), DiscountCode("0000"){}
-SponsoredLivestream ::SponsoredLivestream([[maybe_unused]] string video_name, int like_number, int dislike_number, int video_length,
-                                          [[maybe_unused]] string video_description, [[maybe_unused]] const string& sponsor_name, int watchers, string DiscountCode):
-                                          Video(std::move(video_name), like_number, dislike_number, video_length, std::move(video_description)),
-                                          SponsoredVideo(std::move(video_name), like_number, dislike_number, video_length, std::move(video_description), sponsor_name),
-                                          Livestream(std::move(video_name), like_number, dislike_number, video_length, std::move(video_description), watchers),
-                                          DiscountCode(std::move(DiscountCode))
-                                          {}
+SponsoredLivestream ::SponsoredLivestream(const string& video_name, int like_number, int dislike_number, int video_length,
+                                          const string& video_description, const string& sponsor_name, int watchers, const string& DiscountCode):
+                                          Video(video_name, like_number, dislike_number, video_length, video_description),
+                                          SponsoredVideo(video_name, like_number, dislike_number, video_length, video_description, sponsor_name),
+                                          Livestream(video_name, like_number, dislike_number, video_length, video_description, watchers)
+                                          {this -> DiscountCode = DiscountCode;}
 SponsoredLivestream :: ~SponsoredLivestream(){DiscountCode = "0000"; }
 
 
