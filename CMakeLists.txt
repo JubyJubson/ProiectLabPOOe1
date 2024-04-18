@@ -122,8 +122,8 @@ add_executable(${PROJECT_NAME} main.cpp ${SOURCES}
         Content.h
         YoutubeChannel.cpp
         YoutubeChannel.h
-        src/Video.cpp
-        include/Video.h
+        Video.cpp
+        Video.h
         SponsoredVideo.cpp
         SponsoredVideo.h
         Livestream.cpp

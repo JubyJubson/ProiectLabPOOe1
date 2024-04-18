@@ -1,5 +1,5 @@
 #include "Video.h"
-#include "../InvalidVideoLengthException.h"
+#include "InvalidVideoLengthException.h"
 using namespace std;
 Video::Video(string video_name, int like_number, int dislike_number, int video_length, string video_description) {
     this->video_name = std::move(video_name);
