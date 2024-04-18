@@ -35,22 +35,6 @@ int Video::GetLikeNumber() const {
     return like_number;
 }
 
-[[maybe_unused]] int Video::GetDislikeNumber() const {
-    return dislike_number;
-}
-
-[[maybe_unused]] int Video::GetVideoLength() const {
-    return video_length;
-}
-
-[[maybe_unused]] string Video::GetVideoDesc() {
-    return video_description;
-}
-
-[[maybe_unused]] void Video::LikeVideo() {
-    this -> like_number++;
-}
-
 void Video::DislikeVideo() {
     this -> dislike_number++;
 }
