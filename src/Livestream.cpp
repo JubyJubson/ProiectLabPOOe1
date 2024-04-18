@@ -11,10 +11,7 @@ void Livestream :: show(ostream& out) const{
     out << endl;
     Video::show(out);
 }
-Livestream& Livestream :: operator=(const Livestream& aux){
-    Video ::operator=(aux);
-    this -> watchers = aux.watchers;
-}
+Livestream& Livestream :: operator=(const Livestream& aux)= default;
 
 void Livestream::citire(std::istream & in){
     Video ::citire(in);

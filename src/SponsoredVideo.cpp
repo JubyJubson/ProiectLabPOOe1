@@ -21,10 +21,7 @@ void SponsoredVideo :: show(ostream& out) const{
     out << endl << "---------------------------------------------------------------" << endl;
     Video::show(out);
 }
-SponsoredVideo& SponsoredVideo :: operator=(const SponsoredVideo& aux){
-    Video ::operator=(aux);
-    this -> sponsor_name = aux.sponsor_name;
-}
+SponsoredVideo& SponsoredVideo :: operator=(const SponsoredVideo& aux)= default;
 
 void SponsoredVideo::citire(istream & in) {
     Video :: citire(in);
