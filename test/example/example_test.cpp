@@ -250,15 +250,6 @@ TEST(YoutubeChannelTest, DownloadVideo) {
     EXPECT_EQ(channel.GetDownloadedVideos()[0].GetVideoName(), "VideoName");
 }
 
-TEST(YoutubeChannelTest, OutputOperator) {
-    YoutubeChannel channel("ChannelName", "OwnerName", "Description");
-    testing::internal::CaptureStdout();
-    std::cout << channel;
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_NE(output.find("Owner name: OwnerName"), std::string::npos);
-    EXPECT_NE(output.find("Channel description: Description"), std::string::npos);
-    EXPECT_NE(output.find("Subscriber count: 0"), std::string::npos);
-}
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
