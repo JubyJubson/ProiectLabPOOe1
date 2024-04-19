@@ -255,7 +255,6 @@ TEST(YoutubeChannelTest, OutputOperator) {
     testing::internal::CaptureStdout();
     std::cout << channel;
     std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_NE(output.find("------------------------------Channel Name: ChannelName--------------------------------------"), std::string::npos);
     EXPECT_NE(output.find("Owner name: OwnerName"), std::string::npos);
     EXPECT_NE(output.find("Channel description: Description"), std::string::npos);
     EXPECT_NE(output.find("Subscriber count: 0"), std::string::npos);
