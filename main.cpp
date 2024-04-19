@@ -11,11 +11,6 @@
 using namespace std;
 int main() {
     vector<YoutubeChannel>ListaCanale;
-//    try {
-//        Video invalidVideo("Invalid Video", 0, 0, -1, "This video has an invalid length");
-//    } catch (const std::exception& e) {
-//        std::cerr << "Exception caught: " << e.what() << std::endl;
-//    }
 
     YoutubeChannel canal1("Victoryx", "Fugulin Victor", "Canal de League of Legends - Fiora OTP");
     canal1.set_SubscriberCount(87);
