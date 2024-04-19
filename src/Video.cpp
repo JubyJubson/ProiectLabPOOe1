@@ -61,7 +61,7 @@ Video operator++(Video& video) {
 
 void Video :: show(ostream& out) const{
     out << "            Content Name: " << video_name << endl << endl;
-    out << "    Content Length:"<<video_length  << "    Likes: "<<  like_number << "    Dislikes: "<< dislike_number <<endl << endl;
+    out << "    Content Length: "<<video_length  << "    Likes: "<<  like_number << "    Dislikes: "<< dislike_number <<endl << endl;
     out << "Content Description: " << video_description << endl << endl;
     if (video_length < 0) {
         throw InvalidVideoLengthException();
