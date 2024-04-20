@@ -134,6 +134,8 @@ add_executable(${PROJECT_NAME} main.cpp ${SOURCES}
         include/InvaliSponsorNameException.h
         src/InvalidVideoLengthException.cpp
         include/InvalidVideoLengthException.h
+        src/Shorts.cpp
+        include/Shorts.h
 )
 
 ###############################################################################

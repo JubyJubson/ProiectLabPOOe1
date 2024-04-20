@@ -6,11 +6,14 @@
 #include "SponsoredVideo.h"
 #include "Livestream.h"
 #include "SponsoredLivestream.h"
+#include "Shorts.h"
 #include <exception>
 
 using namespace std;
 int main() {
     vector<YoutubeChannel>ListaCanale;
+
+    Shorts shorts;
 
     YoutubeChannel canal1("Victoryx", "Fugulin Victor", "Canal de League of Legends - Fiora OTP");
     canal1.set_SubscriberCount(87);
@@ -18,17 +21,19 @@ int main() {
     SponsoredVideo v2("Ranked cu colegul de camera(Mihaita) - LoL ep.2", 20, 8, 30, "Fiora gameplay - OP.GG: JimTheMan", "Riot Games");
     SponsoredVideo v3("Incepem Climb-ul la SoloQueue - LoL ep.3", 50, 13, 23, "La limita de emerald - Fiora gameplay - OP.GG: JimTheMan", "Riot Games");
     SponsoredLivestream l1 ("Primul meu live alaturi de Mihaita Piticu'", 120, 37, 98, "Incercam sa ajungem Diamond - Solo/Duo cu Mihaita Piticu \n Aplicati codul de discount pentru 30% reducere la skinuri", "Riot Games", 965, "SKIN30");
-    Video * ptr1 = &v1, *ptr2 = &v2, *ptr3 = &v3, *lptr1 = &l1;
+    Shorts sh1("Gragas BOMBA", 20, 2, 1, "Gragas Highlight", "Mr. Bombastic");
+    Video * ptr1 = &v1, *ptr2 = &v2, *ptr3 = &v3, *lptr1 = &l1, *shptr1 = &sh1;
     auto *p1 = dynamic_cast<SponsoredLivestream*>(lptr1);
     auto *p2 = dynamic_cast<SponsoredVideo*>(ptr2);
     auto *p3 = dynamic_cast<SponsoredVideo*>(ptr3);
-//    cout << p1;
-//    cout << typeid(*p1).name() << endl;
+    auto *p4 = dynamic_cast<Shorts*>(shptr1);
+
     Livestream *livestream;
     canal1.PublishVideo(ptr1);
     canal1.PublishVideo(p2);
     canal1.PublishVideo(p3);
     canal1.PublishVideo(p1);
+    canal1.PublishVideo(p4);
 
     ListaCanale.push_back(canal1);
 
@@ -71,6 +76,7 @@ int main() {
     cout << "To view you Channel - Press 2" << endl;
     cout << "To make a new Channel - Press 3" << endl;
     cout << "To download videos - Press 4" << endl;
+    cout << "To make a short - Press 5" << endl;
     cout << endl << "EXIT - Press 0" << endl;
     int download;
     int x;
@@ -143,6 +149,10 @@ int main() {
                                     break;
                                 case 6:
                                     cout << *(canal1.GetPublishedVideosTitles().at(3));
+                                    cout << "---------------------------------------------------------------" << endl;
+                                    break;
+                                case 7:
+                                    cout << *(canal1.GetPublishedVideosTitles().at(4));
                                     cout << "---------------------------------------------------------------" << endl;
                                     break;
                                 default:
@@ -717,6 +727,12 @@ int main() {
                     }
                 }
                 break;
+                case 5:
+                    cout << "Create your Short: \n";
+                    cin >> shorts;
+                    cout << "You have created a short!\n\n";
+                    cout << shorts;
+                break;
                 default:
                     break;
 
@@ -728,6 +744,7 @@ int main() {
         cout << "To view you Channel - Press 2" << endl;
         cout << "To make a new Channel - Press 3" << endl;
         cout << "To download videos - Press 4" << endl;
+        cout << "To make a short - Press 5" << endl;
         cout << endl << "EXIT - Press 0" << endl;
         cin >> x; cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
     }
