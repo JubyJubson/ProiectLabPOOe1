@@ -3,6 +3,8 @@
 ### Pentru etapa 1 am facut o aplicatie de tip Youtube in care poti sa vizitezi(si sa te abonezi/dezabonezi) diverse canale si sa dai like sau dislike la videoclipurile acestora. De asemnea poti sa iti creezi propriul tau canal si sa postezi videoclipuri. Pentru citire si afisarea a n obiecte am implementat optiunea de a descarca videoclipuri.
 ## Etapa 2:
 ### Pentru etapa 2 am derivat clasa de baza Video care facea parte si din prima etapa a proiectului, in doua clase copil numite SponsoredVideo si Livestream, care acestea la rand lor sunt mostenite in diamant de catre SponsoredLivestream. Clasa abstracta este Content si este mostenita de catre Video. 
+### Branch-ul cu derivata Shorts:
+### Am facut un obiect de tip shorts si l-am adaugat folosind downcasting in videoclipurile canalului 1. De asemenea am adaugat optiunea in meniu sa creezi un short de la tastatura si imediat dupa programul sa il afiseze ca sa arat ca toate functiile clasei adaugate Shorts merg cum trebuie
 ## Cerințe obligatorii 
 
 Nerespectarea duce la nepunctarea proiectului
