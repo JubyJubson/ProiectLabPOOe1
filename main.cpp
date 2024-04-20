@@ -739,7 +739,7 @@ int main() {
             }
 
         }
-        cout << "         WELCOME TO YOUTUBE            Fun Fact: There are currently "  <<Video::getTotalVideos()<< " videos on Youtube" << endl;
+        cout << "          WELCOME TO YOUTUBE            Fun Fact: There are currently "  <<Video::getTotalVideos()<< " videos on Youtube" << endl;
         cout << "To view all YouTube Channels - Press 1" << endl;
         cout << "To view you Channel - Press 2" << endl;
         cout << "To make a new Channel - Press 3" << endl;
